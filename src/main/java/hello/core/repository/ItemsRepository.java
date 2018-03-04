@@ -10,4 +10,6 @@ public interface ItemsRepository {
     Item create(Item newItem);
 
     Item edit(long id, Item newItem);
+
+    Item gettingForId(long id);
 }

@@ -37,18 +37,4 @@ public class ItemsController {
                 .build().toUri();
         return ResponseEntity.created(location).body(createdItem);
     }
-
-    @RequestMapping(method = RequestMethod.PUT)
-    @ResponseBody
-    public ResponseEntity<Item> update(
-            @PathVariable long id,
-            @RequestBody Item newItem) {
-        Item createdItem = itemsRepository.edit(id, newItem);
-        if (createdItem == null) {
-            return ResponseEntity.notFound().build();
-        }
-        URI location = UriComponentsBuilder.fromPath("/hello/")
-                .path(String.valueOf(createdItem.getId())).build().toUri();
-        return ResponseEntity.created(location).body(createdItem);
-    }
 }

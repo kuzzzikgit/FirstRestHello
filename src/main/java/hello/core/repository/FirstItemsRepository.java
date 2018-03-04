@@ -32,4 +32,9 @@ public class FirstItemsRepository implements ItemsRepository {
     public Item edit(long id, Item newItem) {
         return new Item(id,newItem.getName());
     }
+
+    @Override
+    public Item gettingForId(long id) {
+        return null;
+    }
 }
