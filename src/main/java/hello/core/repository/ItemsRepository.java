@@ -12,4 +12,5 @@ public interface ItemsRepository {
     Item edit(long id, Item newItem);
 
     Item gettingForId(long id);
+    boolean delete(long id);
 }

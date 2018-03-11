@@ -37,4 +37,9 @@ public class FirstItemsRepository implements ItemsRepository {
     public Item gettingForId(long id) {
         return null;
     }
+
+    @Override
+    public boolean delete(long id) {
+        return  items.remove(gettingForId(id));
+    }
 }

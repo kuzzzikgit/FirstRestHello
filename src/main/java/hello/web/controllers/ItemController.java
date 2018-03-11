@@ -41,9 +41,20 @@ public class ItemController {
         if (createdItem == null) {
             return ResponseEntity.notFound().build();
         }
-        URI location = UriComponentsBuilder.fromPath("/hello/")
+        URI location = UriComponentsBuilder.fromPath("/items/")
                 .path(String.valueOf(createdItem.getId()))
                 .build().toUri();
         return ResponseEntity.created(location).body(createdItem);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity delete(@PathVariable long id) {
+        boolean deleted = itemsRepository.delete(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package hello.core.repository;
 
 import hello.core.model.Item;
+import org.springframework.jdbc.core.JdbcOperations;
 
 import java.util.List;
 import java.util.UUID;
@@ -54,5 +55,14 @@ public class DatabaseItemsRepository  implements ItemsRepository{
                     return new Item(rowId, rowName);
                 },
                 id);
+    }
+
+    @Override
+    public boolean delete(long id) {
+        int rows = jdbcOperations.update(
+                "DELETE FROM item WHERE id = ?",
+                id
+        );
+        return rows > 0;
     }
 }
