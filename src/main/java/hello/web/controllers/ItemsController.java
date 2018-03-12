@@ -32,7 +32,7 @@ public class ItemsController {
     @ResponseBody
     public ResponseEntity<Item> create(@RequestBody Item newItem) {
         Item createdItem = itemsRepository.create(newItem);
-        URI location = UriComponentsBuilder.fromPath("/hello/")
+        URI location = UriComponentsBuilder.fromPath("/items/")
                 .path(String.valueOf(createdItem.getId()))
                 .build().toUri();
         return ResponseEntity.created(location).body(createdItem);
