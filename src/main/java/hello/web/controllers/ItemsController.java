@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hello")
+@RequestMapping("/items")
 public class ItemsController {
 
     private ItemsRepository itemsRepository;
